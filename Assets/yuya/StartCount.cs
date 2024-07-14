@@ -12,9 +12,4 @@ public class StartCount : MonoBehaviour
         //ˆê•b‚½‚Á‚½‚çŠJn‚Ì•¶š‚ğÁ‚·B
         Destroy(base.gameObject, time);
     }
-
-    void Update()
-    {
-        
-    }
 }
