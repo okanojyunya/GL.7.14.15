@@ -1,54 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class SceneM : MonoBehaviour
+public class TransSceneTimer : MonoBehaviour
 {
-    //遊び方のパネル
-    public GameObject _howtoPanel;
-    //クレジットのパネル
-    public GameObject _creditPanel;
+    //時間をはかる用
+    private float _timer = 0.0f;
+    //タイムリミット
+    [SerializeField] private float _timeLimit = 60.0f;
+    //タイマーのテキスト
+    private Text _timerText;
     //フェード用画像
     public Image _fadeImage;
-    //フェードスピード
     [SerializeField] private float _fadeTime;
 
-    //スタートボタン
-    public void StartAction()
+    private void Start()
     {
-        StartCoroutine(Fade(_fadeTime, "GameScene"));
+        _timerText = GetComponent<Text>();
     }
 
-    //遊び方ボタン
-    public void HowtoActive()
+    private void Update()
     {
-        _howtoPanel.SetActive(true);
+        _timer += Time.deltaTime;
+        if (_timer < _timeLimit)
+        {
+            _timerText.text = ((int)_timeLimit - _timer).ToString("00");
+        }
+        //Debug.Log($"{_timer}");
+        GoResult();
     }
-
-    //遊び方から戻るボタン
-    public void HowtoAnactive()
+    void GoResult()
     {
-        _howtoPanel.SetActive(false);
-    }
-
-    //遊び方ボタン
-    public void CreditActive()
-    {
-        _creditPanel.SetActive(true);
-    }
-
-    //遊び方から戻るボタン
-    public void CreditAnactive()
-    {
-        _creditPanel.SetActive(false);
-    }
-
-    //リスタートボタン
-    public void ResetAction()
-    {
-        StartCoroutine(Fade(_fadeTime, "StartScene"));
+        if (_timer >= _timeLimit)
+        {
+            //SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
+            StartCoroutine(Fade(_fadeTime, "ResultScene"));
+        }
     }
 
     //コルーチン

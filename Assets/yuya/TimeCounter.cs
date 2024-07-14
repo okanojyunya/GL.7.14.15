@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeCounter : MonoBehaviour
 {
     //カウントダウン
-    public float startcount = 1f;
+    private float startcount = 1f;
 
     public float countdown = 5f;
     //時間を表示するText型の変数
@@ -23,7 +23,6 @@ public class TimeCounter : MonoBehaviour
     //タイムアップの音
     public AudioClip timeUpSound;
 
-
     private void Start()
     {
         //オーディオソース取得
@@ -38,9 +37,9 @@ public class TimeCounter : MonoBehaviour
         //startcountが0以下になったとき
         if (startcount <= 0)
         {
+            //スタートの音を鳴らす。
             audioSource.PlayOneShot(startSound);
 
-            //開始から1秒経過したら
             if (startcount +1 <= 0)
             {
                 countdown -= Time.deltaTime;

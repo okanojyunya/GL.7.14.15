@@ -9,12 +9,7 @@ public class StartCount : MonoBehaviour
 
     void Start()
     {
+        //ˆê•b‚½‚Á‚½‚çŠJn‚Ì•¶š‚ğÁ‚·B
         Destroy(base.gameObject, time);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
