@@ -8,7 +8,7 @@ public class Seisei : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(kome);
+
     }
 
     // Update is called once per frame
