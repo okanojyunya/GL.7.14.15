@@ -23,7 +23,6 @@ public class TimeCounter : MonoBehaviour
     //タイムアップの音
     public AudioClip timeUpSound;
 
-
     private void Start()
     {
         //オーディオソース取得
