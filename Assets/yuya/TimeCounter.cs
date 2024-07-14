@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class TimeCounter : MonoBehaviour
+{
+    //カウントダウン
+    public float countdown = 5.0f;
+    public float step_time;
+
+    //時間を表示するText型の変数
+    public Text timeText;
+
+    // Update is called once per frame
+    void Update()
+    {
+        //時間をカウントダウンする
+        countdown -= Time.deltaTime;
+        step_time -= Time.deltaTime;
+
+        //時間を表示する
+        timeText.text = countdown.ToString("f1") + "秒";
+
+        //countdownが0以下になったとき
+        if (countdown <= 0)
+        {
+            timeText.text = "終了！";
+            if (step_time <= 0)
+            {
+                
+                SceneManager.LoadScene("PrototypingScene");
+                Debug.Log("成功");
+            }
+        }
+    }
+}
