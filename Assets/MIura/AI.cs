@@ -81,7 +81,7 @@ public class AI : MonoBehaviour
         }
     }
 
-    public bool Search()
+    private bool Search()
     {
         var myself = _myselfTransform.position;
         var targetPos = _targetTransform.position;
@@ -103,6 +103,10 @@ public class AI : MonoBehaviour
             }
         }
         return false;
+    }
+    public void StoppedNavMeshAgent()
+    {
+        _navMeshAgent.isStopped = true;
     }
     #endregion
 }
