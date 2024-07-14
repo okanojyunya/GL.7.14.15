@@ -106,7 +106,7 @@ public class AI : MonoBehaviour
     }
     public void StoppedNavMeshAgent()
     {
-        _navMeshAgent.isStopped = true;
+        _navMeshAgent.enabled = false;
     }
     #endregion
 }
