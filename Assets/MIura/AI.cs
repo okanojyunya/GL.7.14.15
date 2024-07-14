@@ -1,11 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
     #region　変数宣言
+    #region Animation()
+    [SerializeField] private Animator _animator;
+    #endregion
     #region Search()変数
     [SerializeField] private Transform _myselfTransform;
     [SerializeField] private Transform _targetTransform;
@@ -15,16 +17,20 @@ public class AI : MonoBehaviour
     private Vector3 _targetDir;
     #endregion
     #region AiNavMehs()変数
-    [SerializeField]private float _runSpeed=default;
+    [SerializeField] private float _runSpeed;
     [SerializeField] private float _defaultSpeed;
     private NavMeshAgent _navMeshAgent;
     private float _distance;
     private bool _flag = true;
     #endregion
+    #region OnDestory()変数
+    [SerializeField] private GameObject _gameObject;
+    #endregion
     #endregion
     #region 実装
     private void Start()
     {
+        Random.InitState((int)Time.deltaTime);
         _navMeshAgent = GetComponent<NavMeshAgent>();
         StartCoroutine(AiNavMesh());
     }
@@ -38,11 +44,14 @@ public class AI : MonoBehaviour
             _distance = Vector3.Distance(_myselfTransform.position, _navMeshAgent.destination);
             if (Search() && _flag)
             {
+                _navMeshAgent.isStopped = true;
+                yield return new WaitForSeconds(2);
+                _navMeshAgent.isStopped = false;
                 _navMeshAgent.speed = _runSpeed;
                 _flag = false;
                 _navMeshAgent.destination = (_myselfTransform.position - _targetDir)*2;
             }
-            else if (_distance <= 2.0f)
+            else if (_distance <= 1)
             {
                 _navMeshAgent.speed = _defaultSpeed;
                 _navMeshAgent.destination = _myselfTransform.localPosition + RandomVector();
@@ -51,10 +60,25 @@ public class AI : MonoBehaviour
             yield return null;
         }
     }
-
+    /// <summary>発見アニメーション再生 </summary>
+    /// <returns></returns>
+    private float Animation()
+    {
+        return 1.0f;
+    }
+    /// <summary>ポジションをランダムにする </summary>
+    /// <returns></returns>
     private Vector3 RandomVector()
     {
         return new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent<PlayerMove>(out PlayerMove player))
+        {
+            Instantiate(_gameObject,RandomVector(),Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     public bool Search()
@@ -72,7 +96,7 @@ public class AI : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit))
             {
-                if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                if (hit.collider.TryGetComponent<PlayerMove>(out PlayerMove rigidbody))
                 {
                     return true;
                 }
