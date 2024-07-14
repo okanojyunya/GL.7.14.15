@@ -9,10 +9,8 @@ public class TimeCounter : MonoBehaviour
     //カウントダウン
     public float startcount = 1f;
 
-    public float countdown = 5.0f;
-
+    public float countdown = 5f;
     //時間を表示するText型の変数
-    public Text startText;
 
     public Text timeText;
 
@@ -37,13 +35,9 @@ public class TimeCounter : MonoBehaviour
         //ゲーム開始までをカウントダウンする。
         startcount -= Time.deltaTime;
 
-        //時間を表示する。
-        startText.text = startcount.ToString("f1")+"秒" ;
-
         //startcountが0以下になったとき
         if (startcount <= 0)
         {
-            startText.text = "開始";
             audioSource.PlayOneShot(startSound);
 
             //開始から1秒経過したら
