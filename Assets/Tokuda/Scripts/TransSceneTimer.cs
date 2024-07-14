@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class TransSceneTimer : MonoBehaviour
 {
-    /// <summary>時間をはかる用</summary>
+    //時間をはかる用
     private float _timer = 0.0f;
-    /// <summary>タイムリミット</summary>
+    //タイムリミット
     [SerializeField] private float _timeLimit = 60.0f;
-    /// <summary>タイマーのテキスト</summary>
+    //タイマーのテキスト
     private Text _timerText;
-    /// <summary>フェード用画像</summary>
+    //フェード用画像
     public Image _fadeImage;
     [SerializeField] private float _fadeTime;
 
@@ -28,22 +28,19 @@ public class TransSceneTimer : MonoBehaviour
         {
             _timerText.text = ((int)_timeLimit - _timer).ToString("00");
         }
+        //Debug.Log($"{_timer}");
         GoResult();
     }
     void GoResult()
     {
         if (_timer >= _timeLimit)
         {
+            //SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
             StartCoroutine(Fade(_fadeTime, "ResultScene"));
         }
     }
 
-    /// <summary>
-    /// コルーチン
-    /// </summary>
-    /// <param name="interval"></param>
-    /// <param name="sceneName"></param>
-    /// <returns></returns>
+    //コルーチン
     private IEnumerator Fade(float interval, string sceneName)
     {
         float time = 0f;
