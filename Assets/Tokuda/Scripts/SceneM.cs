@@ -8,6 +8,8 @@ public class SceneM : MonoBehaviour
 {
     //遊び方のパネル
     public GameObject _howtoPanel;
+    //クレジットのパネル
+    public GameObject _creditPanel;
     //フェード用画像
     public Image _fadeImage;
     //フェードスピード
@@ -29,6 +31,18 @@ public class SceneM : MonoBehaviour
     public void HowtoAnactive()
     {
         _howtoPanel.SetActive(false);
+    }
+
+    //遊び方ボタン
+    public void CreditActive()
+    {
+        _creditPanel.SetActive(true);
+    }
+
+    //遊び方から戻るボタン
+    public void CreditAnactive()
+    {
+        _creditPanel.SetActive(false);
     }
 
     //リスタートボタン
