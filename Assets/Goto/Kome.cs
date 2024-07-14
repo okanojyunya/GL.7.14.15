@@ -13,6 +13,7 @@ public class Kome : MonoBehaviour
     {
         _player = GameObject.Find("Suikomiguti");
         _laser = GameObject.Find("Laser");
+        _ai = GetComponent<AI>();
         
     }
 
