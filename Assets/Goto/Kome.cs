@@ -6,12 +6,14 @@ public class Kome : MonoBehaviour
 {
     GameObject _player;
     GameObject _laser;
+    AI _ai;
     bool _hitLaser = false;
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Suikomiguti");
         _laser = GameObject.Find("Laser");
+        
     }
 
     // Update is called once per frame
@@ -31,7 +33,10 @@ public class Kome : MonoBehaviour
         if (other.gameObject.tag == "Laser")
         {
             _hitLaser = true;
+            _ai.StoppedNavMeshAgent();
         }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
