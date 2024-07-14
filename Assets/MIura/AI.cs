@@ -32,7 +32,17 @@ public class AI : MonoBehaviour
         if (innerProduct > cosHalf && targetDistance < _maxDistance)
         {
             _ray = new Ray(_myselfTransform.position, _targetDir);
+            RaycastHit hit;
+            if (Physics.Raycast(_ray, out hit))
+            {
+                if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                {
+                    return true;
+                }
+
+            }
         }
+        return false;
     }
     #endregion
 }

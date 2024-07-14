@@ -8,7 +8,6 @@ public class TimeCounter : MonoBehaviour
 {
     //カウントダウン
     public float countdown = 5.0f;
-    public float step_time;
 
     //時間を表示するText型の変数
     public Text timeText;
@@ -18,8 +17,7 @@ public class TimeCounter : MonoBehaviour
     {
         //時間をカウントダウンする
         countdown -= Time.deltaTime;
-        step_time -= Time.deltaTime;
-
+        
         //時間を表示する
         timeText.text = countdown.ToString("f1") + "秒";
 
@@ -27,11 +25,11 @@ public class TimeCounter : MonoBehaviour
         if (countdown <= 0)
         {
             timeText.text = "終了！";
-            if (step_time <= 0)
+            if (countdown +3 <= 0)
             {
                 
                 SceneManager.LoadScene("PrototypingScene");
-                Debug.Log("成功");
+                //Debug.Log("成功");
             }
         }
     }
