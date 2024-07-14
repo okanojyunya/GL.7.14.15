@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class SceneM : MonoBehaviour
 {
-    //遊び方のパネル
+    /// <summary>遊び方のパネル</summary>
     public GameObject _howtoPanel;
-    //クレジットのパネル
+    /// <summary>クレジットのパネル</summary>
     public GameObject _creditPanel;
-    //フェード用画像
+    /// <summary>フェード用画像</summary>
     public Image _fadeImage;
-    //フェードスピード
+    /// <summary>フェードスピード</summary>
     [SerializeField] private float _fadeTime;
 
     //スタートボタン
@@ -33,13 +33,13 @@ public class SceneM : MonoBehaviour
         _howtoPanel.SetActive(false);
     }
 
-    //遊び方ボタン
+    //クレジットボタン
     public void CreditActive()
     {
         _creditPanel.SetActive(true);
     }
 
-    //遊び方から戻るボタン
+    //クレジットから戻るボタン
     public void CreditAnactive()
     {
         _creditPanel.SetActive(false);
@@ -51,7 +51,12 @@ public class SceneM : MonoBehaviour
         StartCoroutine(Fade(_fadeTime, "StartScene"));
     }
 
-    //コルーチン
+    /// <summary>
+    /// コルーチン
+    /// </summary>
+    /// <param name="interval"></param>
+    /// <param name="sceneName"></param>
+    /// <returns></returns>
     private IEnumerator Fade(float interval, string sceneName)
     {
         float time = 0f;
