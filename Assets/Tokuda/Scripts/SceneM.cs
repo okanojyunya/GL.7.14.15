@@ -18,7 +18,7 @@ public class SceneM : MonoBehaviour
     //スタートボタン
     public void StartAction()
     {
-        StartCoroutine(Fade(_fadeTime, "GameScene"));
+        StartCoroutine(Fade(_fadeTime, "InGameScene"));
     }
 
     //遊び方ボタン
