@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TimeCounter : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     //カウントダウン
     private float startcount = 1f;
@@ -59,7 +59,7 @@ public class TimeCounter : MonoBehaviour
             //終了から0.5秒経過したら
             if (countdown +1.5 <= 0)
             {
-                //Cseneを変える
+                //Sceneを変える
                 SceneManager.LoadScene("Scene Name");
                 //Scene Nameをリザルトのシーンに書き換える。
             }
