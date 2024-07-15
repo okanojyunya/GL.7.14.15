@@ -2,10 +2,12 @@ using System.Collections;
 using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 internal class AI : MonoBehaviour
 {
     #regionÅ@ïœêîêÈåæ
+    [SerializeField] private Image _Image;
     #region Animation()
     [SerializeField] private Animator _animator;
     public enum AnimationFlag
@@ -89,7 +91,7 @@ internal class AI : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody player))
         {
-            Instantiate(_gameObject, new Vector3(0,0,0), Quaternion.identity);
+            Instantiate(_gameObject, new Vector3(0, 0, 0), Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -116,6 +118,14 @@ internal class AI : MonoBehaviour
             }
         }
         return false;
+    }
+    public void ImageControlOn()
+    {
+        _Image.enabled = true;
+    }
+    public void ImageControlOff()
+    {
+        _Image.enabled = false;
     }
     public void StoppedNavMeshAgent()
     {
