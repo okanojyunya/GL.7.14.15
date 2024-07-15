@@ -39,10 +39,8 @@ public class PlayerMove : MonoBehaviour
         _move = _move.normalized * _movespead;
 
         //_move = new Vector3(_horizontal, 0, _vertical).normalized * _movespead;
-        
+
         rb.velocity = _move;
 
-        Debug.Log(rb.velocity);
-        Debug.Log(_horizontal);
     }
 }

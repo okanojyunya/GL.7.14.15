@@ -44,12 +44,13 @@ public class AI : MonoBehaviour
             _distance = Vector3.Distance(_myselfTransform.position, _navMeshAgent.destination);
             if (Search() && _flag)
             {
+                Debug.Log("AA");
                 _navMeshAgent.isStopped = true;
                 yield return new WaitForSeconds(2);
                 _navMeshAgent.isStopped = false;
                 _navMeshAgent.speed = _runSpeed;
                 _flag = false;
-                _navMeshAgent.destination = (_myselfTransform.position - _targetDir)*2;
+                _navMeshAgent.destination = (_myselfTransform.position - _targetDir);
             }
             else if (_distance <= 1)
             {
@@ -74,7 +75,7 @@ public class AI : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.TryGetComponent<PlayerMove>(out PlayerMove player))
+        if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody player))
         {
             Instantiate(_gameObject,RandomVector(),Quaternion.identity);
             Destroy(gameObject);
@@ -96,7 +97,7 @@ public class AI : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(_ray, out hit))
             {
-                if (hit.collider.TryGetComponent<PlayerMove>(out PlayerMove rigidbody))
+                if (hit.collider.TryGetComponent<ISearchableCollider>(out ISearchableCollider rigidbody))
                 {
                     return true;
                 }
