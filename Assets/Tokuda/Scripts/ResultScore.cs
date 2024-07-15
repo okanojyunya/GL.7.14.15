@@ -18,11 +18,7 @@ public class ResultScore : MonoBehaviour
         _resultText = GetComponentInChildren<Text>();
         Debug.Log(ScoreManager.score);
         _scoreText.text = ScoreManager.score.ToString();
-        if (ScoreManager.score == 0)
-        {
-            _resultText.text = "‚´‚ñ‚Ë‚ñ";
-        }
-        else if (ScoreManager.score > 0 && ScoreManager.score <= _level[0])
+        if (ScoreManager.score >= 0 && ScoreManager.score <= _level[0])
         {
             _resultText.text = "¬·";
             _douburi[0].SetActive(true);
