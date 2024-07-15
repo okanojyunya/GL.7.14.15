@@ -17,6 +17,7 @@ public class Anima1 : MonoBehaviour
         if (Input.GetKey(KeyCode.K))
         {
             ani.SetBool("bl1", false);
+            
         }
     }
 }
