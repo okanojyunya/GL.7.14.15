@@ -9,6 +9,7 @@ public class ResultScore : MonoBehaviour
     [SerializeField] private Text _resultText;
     //âΩó±èWÇﬂÇΩÇ©
     [SerializeField] private Text _scoreText;
+    [SerializeField] private GameObject[] _douburi;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +23,22 @@ public class ResultScore : MonoBehaviour
         else if (ScoreManager.score > 0 && ScoreManager.score <= 149)
         {
             _resultText.text = "è¨ê∑";
+            _douburi[0].SetActive(true);
         }
         else if (ScoreManager.score > 149 && ScoreManager.score <= 199)
         {
             _resultText.text = "íÜê∑";
+            _douburi[1].SetActive(true);
         }
         else if (ScoreManager.score > 199 && ScoreManager.score <= 299)
         {
             _resultText.text = "ëÂê∑";
+            _douburi[2].SetActive(true);
         }
         else if (ScoreManager.score > 299)
         {
             _resultText.text = "îMê∑";
+            _douburi[3].SetActive(true);
         }
     }
 }
