@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 7266234803155896532}
   _myselfTransform: {fileID: 3979567135427029495}
-  _targetTransform: {fileID: 0}
+  _targetTransform: {fileID: 2247317573052658345, guid: ba953476b9300c24b822d43b4aeaf9a8, type: 3}
   _angle: 100
   _maxDistance: 5
   _runSpeed: 2
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7fe140bf2f466409f9904c54a27e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
+  _gameObject: {fileID: 5352271801348959300, guid: ba953476b9300c24b822d43b4aeaf9a8, type: 3}
 --- !u!95 &7266234803155896532
 Animator:
   serializedVersion: 5
