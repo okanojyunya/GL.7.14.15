@@ -12,6 +12,7 @@ internal class AI : MonoBehaviour
     {
         isFind,
         isWalk,
+        Flow
     }
     #endregion
     #region Search()•Ï”
