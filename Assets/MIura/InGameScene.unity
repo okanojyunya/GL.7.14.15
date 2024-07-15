@@ -230,34 +230,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_BiasY
-      value: -0.036
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_ScreenX
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_YDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_SoftZoneWidth
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_CameraDistance
-      value: 11.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_SoftZoneHeight
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4972597588816190292, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
-      propertyPath: m_TrackedObjectOffset.y
-      value: 0.51
-      objectReference: {fileID: 0}
     - target: {fileID: 5795429918955485188, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
       propertyPath: m_Follow
       value: 
@@ -311,6 +283,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d481a97097c6954c8dcc4c644f0c30c, type: 3}
+--- !u!1 &511552964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352271801348959300, guid: a6419ce48b31ed9449eff3e903212d75, type: 3}
+  m_PrefabInstance: {fileID: 1650903180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &514137586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,14 +340,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rice_sample
       objectReference: {fileID: 0}
-    - target: {fileID: 6475132364317878906, guid: df0c5d18c45d45a4e8d821adfbbabb91, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7440216301543448917, guid: df0c5d18c45d45a4e8d821adfbbabb91, type: 3}
       propertyPath: _targetTransform
       value: 
       objectReference: {fileID: 83205138}
+    - target: {fileID: 7549292280439381552, guid: df0c5d18c45d45a4e8d821adfbbabb91, type: 3}
+      propertyPath: _gameObject
+      value: 
+      objectReference: {fileID: 511552964}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -558,14 +535,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2247317573052658345, guid: a6419ce48b31ed9449eff3e903212d75, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2247317573052658345, guid: a6419ce48b31ed9449eff3e903212d75, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2247317573052658345, guid: a6419ce48b31ed9449eff3e903212d75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

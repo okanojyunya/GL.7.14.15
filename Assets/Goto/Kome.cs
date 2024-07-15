@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Kome : MonoBehaviour
 {
-    GameObject _player;
-    GameObject _laser;
+    [SerializeField] GameObject _gameObject;
     AI _ai;
     bool _hitLaser = false;
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.Find("Suikomiguti");
-        _laser = GameObject.Find("Laser");
         _ai = GetComponent<AI>();
-        
     }
 
     // Update is called once per frame
@@ -23,7 +19,7 @@ public class Kome : MonoBehaviour
         if (_hitLaser)
         {
 
-            Vector3 suikomi = Vector3.Lerp(transform.position, _player.transform.position, Time.deltaTime * 3f);
+            Vector3 suikomi = Vector3.Lerp(transform.position, _gameObject.transform.position, Time.deltaTime * 3f);
             transform.position = suikomi;
         }
     }
@@ -31,20 +27,10 @@ public class Kome : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Laser")
+        if (other.gameObject.tag == "Player")
         {
             _hitLaser = true;
             _ai.StoppedNavMeshAgent();
-        }
-
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
         }
     }
 }

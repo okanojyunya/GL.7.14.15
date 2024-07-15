@@ -32,6 +32,7 @@ public class AI : MonoBehaviour
     {
         Random.InitState((int)Time.deltaTime);
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.enabled = true;
         StartCoroutine(AiNavMesh());
     }
     #endregion
@@ -77,7 +78,7 @@ public class AI : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody player))
         {
-            Instantiate(_gameObject,RandomVector(),Quaternion.identity);
+            Instantiate(_gameObject, RandomVector(), Quaternion.identity);
             Destroy(gameObject);
         }
     }
