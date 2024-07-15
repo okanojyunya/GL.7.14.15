@@ -6,6 +6,8 @@ public class Komejenerator : MonoBehaviour
 {
     [SerializeField] GameObject _kome;
     [SerializeField] float _generateCount = 50f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class Komejenerator : MonoBehaviour
     /// <returns></returns>
     private Vector3 RandomVector()
     {
-        return new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));
+        return new Vector3(Random.Range(-7, 7),0, Random.Range(-13, 13));
     }
 }

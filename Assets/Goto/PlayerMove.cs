@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] float trpy = 2f;
     Rigidbody rb;
     Vector3 _move;
     float _horizontal;
@@ -22,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Vector3 trp = transform.position;
-        trp.y = 2f;
+        trp.y = trpy;
         transform.position = trp;
 
         Vector3 cameraRight = Vector3.Scale(Camera.main.transform.right, new Vector3(1, 0, 1).normalized);

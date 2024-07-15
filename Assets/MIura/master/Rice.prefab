@@ -51,7 +51,7 @@ MonoBehaviour:
   _Image: {fileID: 3690593678311175261}
   _animator: {fileID: 6133928894533727322}
   _myselfTransform: {fileID: 6422669203955254823}
-  _targetTransform: {fileID: 0}
+  _targetTransform: {fileID: 2247317573052658345, guid: 101d0d6214a52dc4abefd48b275c167c, type: 3}
   _angle: 120
   _maxDistance: 5
   _runSpeed: 2
@@ -69,7 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7fe140bf2f466409f9904c54a27e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
+  _gameObject: {fileID: 5352271801348959300, guid: 101d0d6214a52dc4abefd48b275c167c, type: 3}
+  _animator: {fileID: 6133928894533727322}
 --- !u!195 &3191631190311775098
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -123,6 +124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6422669203955254823}
     m_Modifications:
+    - target: {fileID: 423932982083964557, guid: 6f12b47f435de2a429db07ec1124254d, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 8615678562902885046, guid: 95197730430b13b49abbbb59788ee51f, type: 3}
     - target: {fileID: 2750372519817089757, guid: 6f12b47f435de2a429db07ec1124254d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.003

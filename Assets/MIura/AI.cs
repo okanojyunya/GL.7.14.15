@@ -1,11 +1,11 @@
 using System.Collections;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 internal class AI : MonoBehaviour
 {
+    private bool _FlagDe = true;
     #regionÅ@ïœêîêÈåæ
     [SerializeField] private Image _Image;
     #region Animation()
@@ -52,7 +52,7 @@ internal class AI : MonoBehaviour
         while (true)
         {
             _distance = Vector3.Distance(_myselfTransform.position, _navMeshAgent.destination);
-            if (Search() && _flag)
+            if (Search() && _flag&&_FlagDe)
             {
                 Debug.Log("AA");
                 _navMeshAgent.isStopped = true;
@@ -87,11 +87,18 @@ internal class AI : MonoBehaviour
     {
         return new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5));
     }
+
+    private Vector3 RandomVector2()
+    {
+        return new Vector3(Random.Range(-7, 7), 0, Random.Range(-13, 13));
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody player))
         {
-            Instantiate(_gameObject, new Vector3(0, 0, 0), Quaternion.identity);
+            _FlagDe = false;
+            Instantiate(_gameObject, RandomVector2(), Quaternion.identity);
+            ScoreManager.score++;
             Destroy(gameObject);
         }
     }

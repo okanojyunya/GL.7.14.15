@@ -7,26 +7,27 @@ using UnityEngine.SceneManagement;
 public class TransSceneTimer : MonoBehaviour
 {
     //時間をはかる用
-    private float _timer = 0.0f;
+    private float _timer = 60f;
     //タイムリミット
     [SerializeField] private float _timeLimit = 60.0f;
     //フェード用画像
     public Image _fadeImage;
     [SerializeField] private float _fadeTime;
 
+    [SerializeField] private Text _text;
+
     private void Update()
     {
-        _timer += Time.deltaTime;
-        Debug.Log($"{_timer}");
-        GoResult();
-    }
+        _timer -= Time.deltaTime;
 
-    void GoResult()
-    {
-        if (_timer >= _timeLimit)
+        if (_timer <= 0)
         {
             //SceneManager.LoadScene("ResultScene", LoadSceneMode.Single);
             StartCoroutine(Fade(_fadeTime, "ResultScene"));
+        }
+        else
+        {
+            _text.text = _timer.ToString("F2");
         }
     }
 

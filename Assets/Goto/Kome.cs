@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Kome : MonoBehaviour
 {
-    [SerializeField] GameObject _gameObject;
+    PlayerMove _player;
     AI _ai;
+    [SerializeField]
     Animator _animator;
     bool _hitLaser = false;
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
         _ai = GetComponent<AI>();
+        _player = FindObjectOfType<PlayerMove>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Kome : MonoBehaviour
         if (_hitLaser)
         {
             _animator.Play("Flow");
-            Vector3 suikomi = Vector3.Lerp(transform.position, _gameObject.transform.position, Time.deltaTime * 3f);
+            Vector3 suikomi = Vector3.Lerp(transform.position, _player.transform.position, Time.deltaTime * 3f);
             transform.position = suikomi;
         }
     }
