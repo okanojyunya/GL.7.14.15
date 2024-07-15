@@ -9,7 +9,9 @@ public class ResultScore : MonoBehaviour
     [SerializeField] private Text _resultText;
     //何粒集めたか
     [SerializeField] private Text _scoreText;
+    //達成度ごとに表示を変える用
     [SerializeField] private GameObject[] _douburi;
+    [SerializeField] private int[] _level;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,22 +22,22 @@ public class ResultScore : MonoBehaviour
         {
             _resultText.text = "ざんねん";
         }
-        else if (ScoreManager.score > 0 && ScoreManager.score <= 149)
+        else if (ScoreManager.score > 0 && ScoreManager.score <= _level[0])
         {
             _resultText.text = "小盛";
             _douburi[0].SetActive(true);
         }
-        else if (ScoreManager.score > 149 && ScoreManager.score <= 199)
+        else if (ScoreManager.score > _level[0] && ScoreManager.score <= _level[1])
         {
             _resultText.text = "中盛";
             _douburi[1].SetActive(true);
         }
-        else if (ScoreManager.score > 199 && ScoreManager.score <= 299)
+        else if (ScoreManager.score > _level[1] && ScoreManager.score <= _level[2])
         {
             _resultText.text = "大盛";
             _douburi[2].SetActive(true);
         }
-        else if (ScoreManager.score > 299)
+        else if (ScoreManager.score > _level[2])
         {
             _resultText.text = "熱盛";
             _douburi[3].SetActive(true);

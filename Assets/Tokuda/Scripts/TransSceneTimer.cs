@@ -10,27 +10,17 @@ public class TransSceneTimer : MonoBehaviour
     private float _timer = 0.0f;
     //タイムリミット
     [SerializeField] private float _timeLimit = 60.0f;
-    //タイマーのテキスト
-    private Text _timerText;
     //フェード用画像
     public Image _fadeImage;
     [SerializeField] private float _fadeTime;
 
-    private void Start()
-    {
-        _timerText = GetComponent<Text>();
-    }
-
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer < _timeLimit)
-        {
-            _timerText.text = ((int)_timeLimit - _timer).ToString("00");
-        }
-        //Debug.Log($"{_timer}");
+        Debug.Log($"{_timer}");
         GoResult();
     }
+
     void GoResult()
     {
         if (_timer >= _timeLimit)
