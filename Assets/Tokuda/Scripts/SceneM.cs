@@ -48,6 +48,7 @@ public class SceneM : MonoBehaviour
     //リスタートボタン
     public void ResetAction()
     {
+        ScoreManager.score = 0;
         StartCoroutine(Fade(_fadeTime, "StartScene"));
     }
 
