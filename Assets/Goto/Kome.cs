@@ -6,10 +6,12 @@ public class Kome : MonoBehaviour
 {
     [SerializeField] GameObject _gameObject;
     AI _ai;
+    Animator _animator;
     bool _hitLaser = false;
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
         _ai = GetComponent<AI>();
     }
 
@@ -18,7 +20,7 @@ public class Kome : MonoBehaviour
     {
         if (_hitLaser)
         {
-
+            _animator.Play("Flow");
             Vector3 suikomi = Vector3.Lerp(transform.position, _gameObject.transform.position, Time.deltaTime * 3f);
             transform.position = suikomi;
         }
