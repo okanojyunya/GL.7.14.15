@@ -78,7 +78,7 @@ public class AI : MonoBehaviour
     {
         if (collision.collider.TryGetComponent<Rigidbody>(out Rigidbody player))
         {
-            Instantiate(_gameObject, RandomVector(), Quaternion.identity);
+            Instantiate(_gameObject, new Vector3(0,0,0), Quaternion.identity);
             Destroy(gameObject);
         }
     }
